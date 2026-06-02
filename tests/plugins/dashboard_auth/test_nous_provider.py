@@ -808,7 +808,7 @@ class TestRefreshAndRevoke:
         assert kwargs["data"]["grant_type"] == "refresh_token"
         assert kwargs["data"]["client_id"] == "agent:inst123"
         assert kwargs["data"]["refresh_token"] == "rt_old_value"
-        assert kwargs["headers"]["X-Refresh-Token"] == "rt_old_value"
+        assert kwargs["headers"]["x-nous-refresh-token"] == "rt_old_value"
 
     def test_refresh_400_raises_refresh_expired(self, provider):
         # Expired / revoked / reuse-detected RT → Portal 400 → force re-login.
