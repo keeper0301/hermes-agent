@@ -131,7 +131,7 @@ LAZY_DEPS: dict[str, tuple[str, ...]] = {
     "platform.slack": (
         "slack-bolt==1.27.0",
         "slack-sdk==3.40.1",
-        "aiohttp==3.13.4",  # CVE-2026-34513/34518/34519/34520/34525
+        "aiohttp==3.14.5",  # GHSA-24c4-3p7v-29cm and sibling HIGH advisories (fixed in 3.14.4+)
     ),
     "platform.matrix": (
         "mautrix[encryption]==0.21.0",
@@ -156,7 +156,7 @@ LAZY_DEPS: dict[str, tuple[str, ...]] = {
     # (microsoft-teams-api/cards/common, dependency-injector, msal). Lazy-
     # installed on demand like every other messaging platform; also exposed
     # as the `teams` extra in pyproject for packagers / explicit installs.
-    "platform.teams": ("microsoft-teams-apps==2.0.13.4", "aiohttp==3.13.4"),
+    "platform.teams": ("microsoft-teams-apps==2.0.13.4", "aiohttp==3.14.5"),
 
     # ─── Terminal backends ─────────────────────────────────────────────────
     "terminal.modal": ("modal==1.3.4",),
@@ -184,7 +184,7 @@ LAZY_DEPS: dict[str, tuple[str, ...]] = {
     # for stripped/source-build installs that somehow dropped it. The vision
     # call site uses prompt=False so it can never raise a blocking input()
     # prompt mid-session (#40490).
-    "tool.vision": ("Pillow==12.2.0",),
+    "tool.vision": ("Pillow==13.0.0",),
 }
 
 
